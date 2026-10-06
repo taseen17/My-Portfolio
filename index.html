@@ -344,6 +344,12 @@
     .skill-group h5 { font-size: 1rem; color: var(--gold); margin-bottom: 0.6rem; }
     .contact-info-item a { color: inherit; }
     .contact-info-item a:hover { color: var(--gold); }
+      .hero img.avatar.photo { padding: 0; }
+    .skill-bar-row { margin-bottom: 0.9rem; }
+    .skill-bar-row .label { display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.3rem; }
+    .skill-bar-row .label small { color: var(--muted); }
+    .skill-bar-row .progress { height: 8px; }
+    .interest-box { border-left: 3px solid var(--gold); padding-left: 1rem; }
   </style>
 </head>
 
@@ -379,7 +385,7 @@
   <!-- ============ HERO ============ -->
   <header class="hero" id="top">
     <div class="container">
-      <img src="assets/logo.png" alt="Taseen logo" class="avatar">
+      <img src="assets/profile.jpg" alt="Photo of Mir Muktadir Ali Taseen" class="avatar photo" onerror="this.onerror=null;this.src='assets/logo.png';this.style.padding='12px';">
       <h1>Hi, I'm <span>Mir Muktadir Ali Taseen</span></h1>
       <p class="role">Junior Full-Stack Developer | React, FastAPI &amp; PostgreSQL</p>
       <p style="color:var(--muted); max-width:560px; margin:0.8rem auto 0;">
@@ -390,6 +396,7 @@
         <a href="assets/Taseen_Resume_Updated.pdf" download class="btn btn-gold px-4">
           <i class="bi bi-download"></i> Download CV
         </a>
+        <a href="assets/Taseen_Resume_Updated.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold px-4"><i class="bi bi-eye"></i> View CV</a>
         <a href="#contact" class="btn btn-outline-gold px-4">Contact Me</a>
       </div>
       <div class="social-icons">
@@ -409,10 +416,13 @@
       </div>
       <div class="row align-items-center g-5">
         <div class="col-lg-6 about-text">
-          <p>Hi, I'm Taseen, a junior web developer based in Dhaka. I build full-stack apps with React, Tailwind CSS,
-            FastAPI and PostgreSQL, including a blood donation platform with donor search and blood requests.</p>
-          <p>I enjoy figuring out how things work and I welcome feedback. I'm looking for junior or internship roles
-            where I can learn from experienced developers and contribute to real projects.</p>
+          <p>Hi, I'm Taseen, a junior web developer based in Dhaka. My background is in mathematics at the University
+            of Dhaka. I started web development with HTML, CSS and JavaScript, moved on to React and Tailwind CSS, and
+            then added Python, FastAPI and PostgreSQL to build the backend side too.</p>
+          <p>I enjoy full-stack work where I can take a feature from the database to the screen, like the donor search
+            and blood request flow in my Blood Donation System. I like figuring out how things work, I ask questions
+            when I'm stuck, and I welcome feedback on my code.</p>
+          <p class="interest-box">Outside programming: Love watching football matches and movies or series.</p>
           <div class="mt-3">
             <span class="badge-soft"><i class="bi bi-geo-alt"></i> Dhaka, Bangladesh</span>
             <span class="badge-soft"><i class="bi bi-code-slash"></i> Junior Developer</span>
@@ -479,9 +489,7 @@
                 <span class="badge badge-tech">FastApi</span>
                 <span class="badge badge-tech">PostgreSQL</span>
               </div>
-              <a href="https://blood-donation-system-phitron.netlify.app/" target="_blank" rel="noopener noreferrer"
-                class="btn btn-outline-gold btn-sm">View
-                Project</a>
+              <a href="project.html?p=blood-donation" class="btn btn-outline-gold btn-sm">View Details</a>
             </div>
           </div>
         </div>
@@ -500,15 +508,14 @@
                 <span class="badge badge-tech">React</span>
                 <span class="badge badge-tech">Firebase</span>
               </div>
-              <a href="https://lumina-dcc34.web.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold btn-sm">View
-                Project</a>
+              <a href="project.html?p=lumina" class="btn btn-outline-gold btn-sm">View Details</a>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="card">
             <div class="card-img-top d-flex align-items-center justify-content-center">
-              <i class="bi bi-terminal" style="font-size:2.5rem; color:var(--gold);"></i>
+              <img src="assets/expense-tracker.svg" alt="Expense Tracker FastApi" style="max-height: 100%; max-width: 100%;">
             </div>
             <div class="card-body">
               <h5 class="card-title">Expense Tracker FastApi</h5>
@@ -518,8 +525,7 @@
                 <span class="badge badge-tech">FastApi</span>
                 <span class="badge badge-tech">PostgreSQL</span>
               </div>
-              <a href="https://expense-tracker-fastapi-nhj2.onrender.com/" target="_blank" rel="noopener noreferrer"
-                class="btn btn-outline-gold btn-sm">View Project</a>
+              <a href="project.html?p=expense-tracker" class="btn btn-outline-gold btn-sm">View Details</a>
             </div>
           </div>
         </div>
@@ -537,33 +543,27 @@
       <div class="row g-4">
         <div class="col-md-4 skill-group">
           <h5>Frontend</h5>
-          <div>
-            <span class="badge-soft">HTML</span>
-            <span class="badge-soft">CSS</span>
-            <span class="badge-soft">JavaScript</span>
-            <span class="badge-soft">React</span>
-            <span class="badge-soft">Tailwind CSS</span>
-            <span class="badge-soft">Bootstrap</span>
-          </div>
+          <div class="skill-bar-row"><div class="label"><span>HTML</span><small>Advanced</small></div><div class="progress" role="progressbar" aria-label="HTML" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:90%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>CSS</span><small>Advanced</small></div><div class="progress" role="progressbar" aria-label="CSS" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:85%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>JavaScript</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="JavaScript" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:70%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>React</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="React" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:70%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>Tailwind CSS</span><small>Advanced</small></div><div class="progress" role="progressbar" aria-label="Tailwind CSS" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:80%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>Bootstrap</span><small>Advanced</small></div><div class="progress" role="progressbar" aria-label="Bootstrap" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:80%"></div></div></div>
         </div>
         <div class="col-md-4 skill-group">
           <h5>Backend &amp; Database</h5>
-          <div>
-            <span class="badge-soft">Python</span>
-            <span class="badge-soft">FastAPI</span>
-            <span class="badge-soft">PostgreSQL</span>
-            <span class="badge-soft">SQLAlchemy</span>
-            <span class="badge-soft">Alembic</span>
-            <span class="badge-soft">Firebase</span>
-          </div>
+          <div class="skill-bar-row"><div class="label"><span>Python</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="Python" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:75%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>FastAPI</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="FastAPI" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:70%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>PostgreSQL</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="PostgreSQL" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:65%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>SQLAlchemy</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="SQLAlchemy" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:65%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>Alembic</span><small>Beginner</small></div><div class="progress" role="progressbar" aria-label="Alembic" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:55%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>Firebase</span><small>Beginner</small></div><div class="progress" role="progressbar" aria-label="Firebase" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:55%"></div></div></div>
         </div>
         <div class="col-md-4 skill-group">
           <h5>Tools &amp; Testing</h5>
-          <div>
-            <span class="badge-soft">Git</span>
-            <span class="badge-soft">GitHub</span>
-            <span class="badge-soft">pytest</span>
-          </div>
+          <div class="skill-bar-row"><div class="label"><span>Git</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="Git" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:70%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>GitHub</span><small>Intermediate</small></div><div class="progress" role="progressbar" aria-label="GitHub" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:75%"></div></div></div>
+          <div class="skill-bar-row"><div class="label"><span>pytest</span><small>Beginner</small></div><div class="progress" role="progressbar" aria-label="pytest" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:60%"></div></div></div>
         </div>
       </div>
     </div>
@@ -582,16 +582,6 @@
             <h5>Bachelor of Science in Mathematics</h5>
             <div class="school">University of Dhaka</div>
             <div class="years">2017–2024 (did not complete)</div>
-          </div>
-          <div class="edu-card">
-            <h5>Higher Secondary Certificate (HSC)</h5>
-            <div class="school">Quality Education College</div>
-            <div class="years">2016</div>
-          </div>
-          <div class="edu-card">
-            <h5>Secondary School Certificate (SSC)</h5>
-            <div class="school">Motijheel Model High School &amp; College</div>
-            <div class="years">2014</div>
           </div>
         </div>
       </div>
@@ -612,6 +602,14 @@
             <a href="mailto:muktadirtaseen98@gmail.com">muktadirtaseen98@gmail.com</a>
           </div>
           <div class="contact-info-item">
+            <i class="bi bi-telephone"></i>
+            <a href="tel:+8801521204563">+880 1521-204563</a>
+          </div>
+          <div class="contact-info-item">
+            <i class="bi bi-whatsapp"></i>
+            <a href="https://wa.me/8801521204563" target="_blank" rel="noopener noreferrer">WhatsApp: +880 1521-204563</a>
+          </div>
+          <div class="contact-info-item">
             <i class="bi bi-geo-alt"></i>
             <span>Dhaka, Bangladesh</span>
           </div>
@@ -621,7 +619,6 @@
           </div>
         </div>
         <div class="col-lg-7">
-          <!-- Replace YOUR_FORM_ID with your Formspree form ID (formspree.io) -->
           <form action="https://formspree.io/f/xbgdrnqj" method="POST">
             <div class="row g-3">
               <div class="col-md-6">

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details — Mir Muktadir Ali Taseen</title>
+  <link rel="icon" href="assets/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#0d233b; --navy-dark:#0a1826; --gold:#f2a93c; --cream:#f5f1e8; --muted:#a9b8c7; }
+    body { font-family:'Inter',sans-serif; background:var(--navy-dark); color:var(--cream); }
+    h1,h2,h3,h4,h5 { font-family:'Poppins',sans-serif; font-weight:600; }
+    a { text-decoration:none; }
+    .navbar { background:var(--navy); }
+    .navbar-brand { color:var(--cream) !important; font-weight:600; }
+    .btn-gold { background:var(--gold); border-color:var(--gold); color:var(--navy); font-weight:600; }
+    .btn-gold:hover { background:#e0952b; border-color:#e0952b; color:var(--navy); }
+    .btn-outline-gold { border-color:var(--gold); color:var(--gold); font-weight:600; }
+    .btn-outline-gold:hover { background:var(--gold); color:var(--navy); }
+    main { padding:6rem 0 4rem; }
+    .shot { width:100%; border-radius:10px; border:1px solid rgba(245,241,232,.1); background:var(--navy); }
+    .lead-text, li { color:var(--muted); }
+    h2.part { font-size:1.2rem; color:var(--gold); margin:2rem 0 .8rem; }
+    .badge-tech { background:rgba(242,169,60,.15); color:var(--gold); font-weight:500; padding:.5rem .8rem; margin:.2rem .2rem .2rem 0; }
+    footer { background:var(--navy); color:var(--muted); text-align:center; padding:1.5rem 0; font-size:.85rem; }
+    a:focus-visible, .btn:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Taseen</a>
+      <a class="btn btn-outline-gold btn-sm" href="index.html#projects"><i class="bi bi-arrow-left"></i> All projects</a>
+    </div>
+  </nav>
+
+  <main><div class="container" id="detail"></div></main>
+
+  <footer><div class="container">&copy; 2026 Mir Muktadir Ali Taseen.</div></footer>
+
+  <script>
+    // Edit the repo links below to point to each project's client repository.
+    var projects = {
+      'blood-donation': {
+        name: 'Blood Donation System',
+        image: 'assets/Screenshot (35).png',
+        stack: ['React', 'Tailwind CSS', 'FastAPI', 'PostgreSQL'],
+        about: 'A full-stack web app where people can search for blood donors, post blood requests and register as donors. The React and Tailwind frontend talks to a FastAPI and PostgreSQL backend.',
+        live: 'https://blood-donation-system-phitron.netlify.app/',
+        repo: 'https://github.com/taseen17/Blood-Donation-System-Frontend',
+        challenges: [
+          'Designing donor search filters (blood group and location) that return accurate results quickly.',
+          'Connecting the React frontend to the FastAPI backend, including CORS and form validation.',
+          'Keeping the layout usable on small screens with many form fields.'
+        ],
+        future: [
+          'Email or SMS alerts for matching donors when a request is posted.',
+          'Map-based donor search.',
+          'An admin dashboard to manage donors and requests.'
+        ]
+      },
+      'lumina': {
+        name: 'Lumina',
+        image: 'assets/Screenshot (36).png',
+        stack: ['HTML', 'Tailwind CSS', 'React', 'Firebase'],
+        about: 'A modern website for career coaching and mentorship, built with React and Tailwind CSS and hosted on Firebase.',
+        live: 'https://lumina-dcc34.web.app/',
+        repo: 'https://github.com/taseen17/Lumina',
+        challenges: [
+          'Building a clean, responsive layout that works on phones, tablets and desktops.',
+          'Setting up Firebase hosting and deployment for the first time.',
+          'Organising React components so pages stay easy to change.'
+        ],
+        future: [
+          'Mentor profiles and session booking.',
+          'A blog or resources section for career advice.'
+        ]
+      },
+      'expense-tracker': {
+        name: 'Expense Tracker FastApi',
+        image: 'assets/expense-tracker.svg',
+        stack: ['Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Alembic', 'pytest'],
+        about: 'A simple expense tracking API built with FastAPI and Python. It stores data in PostgreSQL through SQLAlchemy, manages schema changes with Alembic and is covered by pytest API tests.',
+        live: 'https://expense-tracker-fastapi-nhj2.onrender.com/',
+        repo: 'https://github.com/taseen17/Expense-Tracker-FastAPI',
+        challenges: [
+          'Learning database migrations with Alembic without breaking existing data.',
+          'Writing pytest tests that run against a separate test database.',
+          'Deploying the API and database on Render.'
+        ],
+        future: [
+          'A React frontend with charts for spending by category.',
+          'User authentication so each person sees only their own expenses.',
+          'Monthly budgets and spending alerts.'
+        ]
+      }
+    };
+
+    var id = new URLSearchParams(location.search).get('p');
+    var p = projects[id];
+    var box = document.getElementById('detail');
+    var list = function (a) { return '<ul>' + a.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; };
+
+    if (!p) {
+      document.title = 'Project not found';
+      box.innerHTML = '<h1>Project not found</h1><p class="lead-text">Choose a project from the <a href="index.html#projects" style="color:var(--gold)">projects section</a>.</p>';
+    } else {
+      document.title = p.name + ' — Project Details';
+      box.innerHTML =
+        '<div class="row g-5"><div class="col-lg-6"><img class="shot" src="' + p.image + '" alt="' + p.name + ' screenshot"></div>' +
+        '<div class="col-lg-6"><h1>' + p.name + '</h1>' +
+        '<p class="lead-text mt-3">' + p.about + '</p>' +
+        '<div class="d-flex flex-wrap gap-2 mt-4">' +
+        '<a class="btn btn-gold" href="' + p.live + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Live project</a>' +
+        '<a class="btn btn-outline-gold" href="' + p.repo + '" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i> GitHub repository</a></div></div></div>' +
+        '<h2 class="part">Main technology stack</h2><div>' + p.stack.map(function (t) { return '<span class="badge badge-tech">' + t + '</span>'; }).join('') + '</div>' +
+        '<h2 class="part">Challenges I faced</h2>' + list(p.challenges) +
+        '<h2 class="part">Potential improvements and future plans</h2>' + list(p.future);
+    }
+  </script>
+</body>
+</html>
